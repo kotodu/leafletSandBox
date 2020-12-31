@@ -19,21 +19,23 @@
 
     </div>
     <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
         #leafletMap {
             width: 100vw;
             height: 100vh;
-            margin: 0;
-            padding: 0;
         }
     </style>
     <script>
         var map = L.map('leafletMap').setView([37.467224, 138.830521], 10);
-        L.tileLayer('./xyz/{z}/{x}/{y}.png', {
-            attribution: '©transpass'
+        L.tileLayer('https://cyberjapandata.gsi.go.jp/xyz/std/{z}/{x}/{y}.png', {
+            attribution: "<a href='https://maps.gsi.go.jp/development/ichiran.html' target='_blank'>地理院タイル</a>"
         }).addTo(map);
-        // 仮置きOSM
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png?{foo}', {
-            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        L.tileLayer('./xyz/{z}/{x}/{y}.png', {
+            attribution: '©transpass',
         }).addTo(map);
     </script>
 </body>
